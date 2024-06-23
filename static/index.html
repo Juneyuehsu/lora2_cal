@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaiRa 計算器</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>TaiRa 計算器</h1>
+        <form @submit.prevent="calculate">
+            <div>
+                <label for="sf">擴頻因子 (SF):</label>
+                <select v-model="form.sf" id="sf">
+                    <option v-for="i in 6" :value="i+6">{{ i+6 }}</option>
+                </select>
+            </div>
+            <div>
+                <label for="bw">頻寬 (kHz):</label>
+                <input type="number" v-model="form.bw" id="bw" step="0.1">
+            </div>
+            <div>
+                <label for="cr">編碼率 (CR):</label>
+                <select v-model="form.cr" id="cr">
+                    <option value="4/5">4/5</option>
+                    <option value="4/6">4/6</option>
+                    <option value="4/7">4/7</option>
+                    <option value="4/8">4/8</option>
+                </select>
+            </div>
+            <div>
+                <label for="pl">有效載荷長度 (字節):</label>
+                <input type="number" v-model="form.pl" id="pl">
+            </div>
+            <div>
+                <label for="preamble_len">前導碼長度 (符號):</label>
+                <input type="number" v-model="form.preamble_len" id="preamble_len">
+            </div>
+            <div>
+                <label for="tx_power">發射功率 (dBm):</label>
+                <input type="number" v-model="form.tx_power" id="tx_power">
+            </div>
+            <div>
+                <label for="tx_ant_gain">發射天線增益 (dB):</label>
+                <input type="number" v-model="form.tx_ant_gain" id="tx_ant_gain">
+            </div>
+            <div>
+                <label for="rx_ant_gain">接收天線增益 (dB):</label>
+                <input type="number" v-model="form.rx_ant_gain" id="rx_ant_gain">
+            </div>
+            <div>
+                <label for="frequency">頻率 (MHz):</label>
+                <input type="number" v-model="form.frequency" id="frequency">
+            </div>
+            <div>
+                <label for="noise_figure">噪聲指數 (dB):</label>
+                <input type="number" v-model="form.noise_figure" id="noise_figure">
+            </div>
+            <div>
+                <label for="environment_factors">環境:</label>
+                <div v-for="(factor, index) in environmentOptions" :key="index">
+                    <input type="checkbox" :value="factor.value" v-model="form.environment_factors">
+                    <label>{{ factor.label }}</label>
+                </div>
+            </div>
+            <button type="submit">計算</button>
+        </form>
+        <div v-if="result">
+            <h2>計算結果</h2>
+            <p>有效數據速率: {{ result.有效數據速率 }} kbps</p>
+            <p>空中時間: {{ result.空中時間 }} ms</p>
+            <p>最大傳輸距離: {{ result.最大傳輸距離 }} km</p>
+            <p>接收靈敏度: {{ result.接收靈敏度 }} dBm</p>
+        </div>
+    </div>
+    <footer>
+        <p>Created by Alonso, 2024</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
