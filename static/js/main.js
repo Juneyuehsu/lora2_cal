@@ -90,7 +90,9 @@ Vue.component('lora-calculator', {
             <p>空中時間: {{ results.time_on_air.toFixed(3) }} ms</p>
             <p>最大傳輸距離: {{ results.max_distance.toFixed(3) }} km</p>
             <p>接收靈敏度: {{ results.receiver_sensitivity.toFixed(2) }} dBm</p>
-
+        
+        </div>
+        <footer>Created by Alonso, 2024 - Beta</footer>
         <div>
             <h3>參數定義</h3>
             <p><strong>擴頻因子 (SF):</strong> LoRa的擴頻因子，範圍為6至12。</p>
@@ -104,8 +106,6 @@ Vue.component('lora-calculator', {
             <p><strong>頻率 (MHz):</strong> LoRa通信的頻率，單位是兆赫（MHz）。</p>
             <p><strong>噪聲指數 (dB):</strong> 接收機的噪聲指數，單位是dB。</p>
         </div>
-        </div>
-        <footer>Created by Alonso, 2024</footer>
     </div>
     `
 })
