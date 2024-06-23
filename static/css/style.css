@@ -3,49 +3,48 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
-    font-family: Arial, sans-serif;
+    overflow: auto; /* 确保内容可以滚动 */
 }
 
 .container {
-    width: 90%;
-    max-width: 600px;
-    background-color: #ffffff; /* 白色 */
+    background-color: #fff; /* 白色背景 */
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
+    width: 90%; /* 让内容适应屏幕宽度 */
+    max-width: 600px; /* 限制最大宽度 */
+    box-sizing: border-box;
 }
 
 h1 {
     text-align: center;
-}
-
-.form-group {
-    margin-bottom: 15px;
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 input, select {
-    width: calc(100% - 10px);
+    width: 100%;
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 button {
     width: 100%;
     padding: 10px;
     background-color: #007bff;
-    color: white;
+    color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
 }
@@ -54,20 +53,20 @@ button:hover {
     background-color: #0056b3;
 }
 
-.results {
+.result, .definition {
     margin-top: 20px;
+    text-align: left;
 }
 
 .definition {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #fff;
     padding: 10px;
-    border-radius: 5px;
-    margin-top: 20px;
+    border-radius: 4px;
 }
 
-.creator {
+.footer {
     text-align: right;
     font-size: 12px;
     font-style: italic;
+    margin-top: 20px;
 }
